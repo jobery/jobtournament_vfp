@@ -1,3 +1,4 @@
+*** programa para preparar entornode desarrollo
 *** programa inicio de aplicacion ***
 
 _Screen.Visible = .F.
@@ -75,35 +76,3 @@ On Shutd Do programs\lib_exit.prg
 
 *** set de errores
 On Error Do programas\lib_errors.prg With Error(),Program(),Lineno()
-
-_Screen.ColorSource = 5
-
-If Type('_SCREEN.imgWallPaper')='O'
-	_Screen.RemoveObject("imgWallPaper")
-Endif
-
-_Screen.AddObject("imgWallPaper","IMAGE")
-
-With _Screen.imgwallpaper
-
-	If File(Fullpath('images\logo.jpg'))
-		.Picture = 'images\logo.jpg'
-	Else
-		.Picture = ''
-	Endif
-
-	.Top 	= _Screen.Height/2 - .Height/2
-	.Left 	= _Screen.Width/2 - .Width/2
-Endwith
-
-If File(Fullpath('icons/sistema1.ico'))
-	_Screen.Icon = 'icons/sistema1.ico'
-Endif
-
-_Screen.WindowState = 2
-_Screen.Visible 	= .T.
-_Screen.Refresh()
-
-Set Sysmenu  To
-
-Read Event

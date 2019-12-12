@@ -43,12 +43,14 @@ _Screen.Refresh()
 
 *** se define los programas del sistema
 Set Procedure To ;
-	programs\lib_security.prg,;
-	programs\lib_errors.prg,;
-	programs\lib_general.prg;
+	libraries\lib_security.prg,;
+	libraries\lib_errors.prg,;
+	libraries\lib_general.prg;
 	Additive
 
-Set Classlib To class\class_security ;
+Set Classlib To ;
+	class\class_security ,;
+	class\themedtitlebar ;
 	ADDITIVE
 
 *** variables publicas
