@@ -33,5 +33,11 @@ If Vartype(pb_usuario)<>'C'
 	pb_usuario = ''
 Endif
 
+*Insert Into System!tbl_errores(ero_error,ero_usuario,ero_linea,ero_fecha,ero_hora,ero_metodo,ero_mensaje,ero_nom_pc,ero_usu_pc,ero_descripcion,ero_nue_reg);
+values(verr_error,pb_usuario,verr_linea,verr_fecha,verr_hora,verr_metodo,Msg,verr_pc,verr_usupc,verr_descri,DATETIME())
+
+Messagebox(verr_linea,"verr_linea") 
+Messagebox(VARTYPE(verr_linea),"verr_linea") 
+
 Insert Into System!tbl_errores(ero_error,ero_usuario,ero_linea,ero_fecha,ero_hora,ero_metodo,ero_mensaje,ero_nom_pc,ero_usu_pc,ero_descripcion,ero_nue_reg);
 	values(verr_error,pb_usuario,verr_linea,verr_fecha,verr_hora,verr_metodo,Msg,verr_pc,verr_usupc,verr_descri,DATETIME())

@@ -39,6 +39,8 @@ Set Default To Sys(5)+Curdir()
 Set Path To programs,Class,reports,icons,Forms;
 
 _Screen.Caption =  ".:: Sistema de Torneos ::. Jobery Version 1.0.0"
+AddProperty(_Screen, "pro_perfil_usuario", "" )
+AddProperty(_Screen, "pro_usuario", "" )
 _Screen.Refresh()
 
 *** se define los programas del sistema
@@ -50,7 +52,11 @@ Set Procedure To ;
 
 Set Classlib To ;
 	class\class_security ,;
-	class\themedtitlebar ;
+	class\class_form ,;
+	class\themedtitlebar ,;
+	class\vfpblueskin ,;
+	class\placeholder ,;
+	class\class_objects ;
 	ADDITIVE
 
 *** variables publicas
@@ -71,10 +77,10 @@ _ReportPreview = Fullpath("REPORTPREVIEW.APP")
 * Report Writer
 _ReportBuilder = Fullpath("REPORTBUILDER.APP")
 
-On Shutd Do programs\lib_exit.prg
+On Shutd Do libraries\lib_exit.prg
 
 *** set de errores
-On Error Do programas\lib_errors.prg With Error(),Program(),Lineno()
+On Error Do libraries\lib_errors.prg With Error(),Program(),Lineno()
 
 _Screen.ColorSource = 5
 
@@ -105,5 +111,16 @@ _Screen.Visible 	= .T.
 _Screen.Refresh()
 
 Set Sysmenu  To
+
+PB_SIS_LOGIN = .F.
+
+Do Form Forms\frm_adm_login.scx
+
+If PB_SIS_LOGIN
+
+Else
+	On Shutdown
+	Return
+Endif
 
 Read Event

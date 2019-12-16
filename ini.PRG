@@ -51,7 +51,11 @@ Set Procedure To ;
 
 Set Classlib To ;
 	class\class_security ,;
-	class\themedtitlebar ;
+	class\class_form ,;
+	class\themedtitlebar ,;
+	class\vfpblueskin ,;
+	class\placeholder ,;
+	class\class_objects ;
 	ADDITIVE
 
 *** variables publicas
@@ -72,7 +76,7 @@ _ReportPreview = Fullpath("REPORTPREVIEW.APP")
 * Report Writer
 _ReportBuilder = Fullpath("REPORTBUILDER.APP")
 
-On Shutd Do programs\lib_exit.prg
+On Shutd Do libraries\lib_exit.prg
 
 *** set de errores
-On Error Do programas\lib_errors.prg With Error(),Program(),Lineno()
+On Error Do libraries\lib_errors.prg With Error(),Program(),Lineno()
